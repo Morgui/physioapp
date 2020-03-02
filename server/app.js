@@ -1,25 +1,22 @@
-require('dotenv').config();
+// Enviroment variables
+require('dotenv').config()
 
 // Database connection
 require('./configs/mongoose.config')
 
 // Application instance
 const express = require('express')
-const app = express();
+const app = express()
 
 // Configs
 require('./configs/middleware.config')(app)
 require('./configs/session.config')(app)
 
-// passport
-require('./passport')(app);
-
 // Base Url
-const index = require('./routes/index');
-app.use('/', index);
 
-const authRoutes = require('./routes/auth');
-app.use('/auth', authRoutes);
+app.use('/', require(('./routes/index')))
+app.use('/api/auth', require('./routes/auth'))
+app.use('/api/appointment', require('./routes/appointment.routes'))
 
 
 module.exports = app;
