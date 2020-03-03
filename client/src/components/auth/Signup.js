@@ -58,7 +58,7 @@ class Signup extends Component {
                                 <Form.Control type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                             </Form.Group>
 
-                            <Button variant="dark" type="submit">Sign Up</Button>
+                            <Button variant="info" type="submit">Sign Up</Button>
                         </Form>
                     </Col>
                 </Row>

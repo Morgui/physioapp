@@ -15,3 +15,32 @@
 | 10 | put | /patient/:id | Editar expediente|
 | 11 | delete | /patient/:id | Eliminar expediente|
 
+
+## Paso a seguir en el server 
+
+- Ya esta creado el formulario modal en cliente, ahora el servidor tiene que recibir esos datos y buscar el paciente o crearlo si no existiera y crear la cita relacionándola con los datos del paciente.
+
+- *TODO a futuro: Endpoint que devuelva la lista de horas disponibles de un día en concreto (de momento va devolver la misma lista)
+
+## Pasos a seguir de endpoints en client (react)
+
+- en la carpeta pages, crear componentes que seran las paginas:
+
+- /admin (una vez logueado al profesional se le debe redireccionar directamente) Componente adminIndex: debe aparecerle un resumen de las citas del día
+
+- /admin/patients (para acceder al listado de pacientes) tendría un search para filtrar la búsqueda //Componente patientsList
+
+- /admin/patients/:id (acceder a la ficha del paciente) Componente patientDetails
+
+- "para patients hay que crear un service para obtener toda la información relacionada con los pacientes"
+
+
+- Crear Home para la pagina principal:
+          <Route exact path="/" render={() => <Home />} />
+
+- Crear About para página sobre nosotros
+
+- Crear paginas de servicios y tarifas (?)
+
+- *TODO a futuro: En el formulario de pedir cita, el campo de la hora esta inicialmente desactivado hasta que elijas fecha, una vez que la elijas, disparar un evento que pida al servidor las horas disponibles para ese día.
+Entonces el servidor debe responder con sólo las disponibles y que estas sean sólo las que le aparezcan al paciente

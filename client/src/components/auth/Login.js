@@ -29,7 +29,7 @@ class Login extends Component {
             .then(theLoggedUser => {
                 this.setState({ username: '', password: '' })
                 this.props.setTheUser(theLoggedUser)
-                this.props.history.push('/')
+                this.props.history.push('/admin')
             })
             .catch(err => console.log({ err }))
     }
@@ -58,7 +58,7 @@ class Login extends Component {
                                 <Form.Control type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                             </Form.Group>
 
-                            <Button variant="dark" type="submit">Log In</Button>
+                            <Button variant="info" type="submit">Log In</Button>
                         </Form>
                     </Col>
                 </Row>

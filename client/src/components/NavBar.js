@@ -38,14 +38,14 @@ class Navigation extends Component {
                         {this.props.loggedInUser ?
                             <>
                                 <Nav.Link as="div"> <Link to="/">PhysioApp</Link></Nav.Link>
-                                <Nav.Link as="div"> <Link to="/appointment">Appointment</Link></Nav.Link>
+                                <Nav.Link as="div"> <Link to="/appointment">Cita Online</Link></Nav.Link>
                                 <Nav.Link onClick={this.logout}>LogOut</Nav.Link>
                                 <Nav.Link as="div"><Link to="/profile">{greeting}</Link></Nav.Link>
                             </>
                             :
                             <>
                                 <Nav.Link as="div"> <Link to="/">PhysioApp</Link></Nav.Link>
-                                <Nav.Link as="div"> <Link to="/appointment">Appointment</Link></Nav.Link>
+                                <Nav.Link as="div"> <Link to="/appointment">Cita Online</Link></Nav.Link>
                                 <Nav.Link as="div"> <Link to="/signup">SignUp</Link></Nav.Link>
                                 <Nav.Link as="div"> <Link to="/login">LogIn</Link></Nav.Link>
                                 <Nav.Link as="div">{greeting}</Nav.Link>

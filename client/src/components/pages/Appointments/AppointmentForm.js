@@ -8,26 +8,30 @@ import Modal from 'react-bootstrap/Modal'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
-class Appointment extends Component {
+import AppointmenService from '../../../services/appointment.services'
+
+class AppointmentForm extends Component {
 
     constructor(props) {
         super(props)
-        // this.services = new Appointment()
+        this.service = new AppointmenService()
         this.state = {
-            name: '',
-            surname: '',
-            email: '',
-            date: '',
-            motive: '',
+            appointment: {
+                name: '',
+                surname: '',
+                email: '',
+                date: '',
+                motive: ''
+            },
             showForm: false
 
         }
     }
 
-    finishAction = () => {
-        this.props.closeModal()
-        this.props.refreshList()
-    }
+    // finishAction = () => {
+    //     this.props.closeModal()
+    //     this.props.refreshList()
+    // }  Creo que no está funcionando esta parte
 
     handleChange = e => {
         let { name, value } = e.target
@@ -36,9 +40,19 @@ class Appointment extends Component {
         })
     }
 
+    createAppointment = (data) => {
+        console.log("DATA:", data)
+        this.service.createAppointment(data)
+            .then(result => {
+                console.log(result)
+            })
+    }
+
     handleSubmit = e => {
         e.preventDefault()
-        this.postAppointment()
+        console.log(e)
+        this.createAppointment(this.state.appointment)
+        this.props.history.push("/")
     }
 
     handleClose = () => this.setState({ showForm: false })
@@ -51,45 +65,42 @@ class Appointment extends Component {
             <Container className="auth-div">
                 <Row className="justify-content-md-center">
                     <Col md={4}>
-                        <Button variant="primary" onClick={this.handleShow}>
-                            Prueba Modal
+                        <Button variant="success" onClick={this.handleShow}>
+                            Pedir Cita
                         </Button>
                         <Modal show={this.state.showForm} onHide={this.handleClose}>
                             <Modal.Header closeButton>
-                                <Modal.Title>Modal heading</Modal.Title>
+                                <Modal.Title>Solicitar Cita</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
                                 <Form onSubmit={this.handleSubmit}>
                                     <Form.Group>
                                         <Form.Label>Nombre</Form.Label>
-                                        <Form.Control type="text" name="name" />
+                                        <Form.Control type="text" name="name" value={this.state.appointment.name} onChange={this.handleChange} />
                                     </Form.Group>
                                     <Form.Group>
                                         <Form.Label>Apellidos</Form.Label>
-                                        <Form.Control type="text" name="surname" />
+                                        <Form.Control type="text" name="surname" value={this.state.appointment.surname} onChange={this.handleChange} />
                                     </Form.Group>
                                     <Form.Group>
                                         <Form.Label>Email</Form.Label>
-                                        <Form.Control type="email" name="email" />
+                                        <Form.Control type="email" name="email" value={this.state.appointment.email} onChange={this.handleChange} />
                                     </Form.Group>
                                     <Form.Group>
                                         <Form.Label>Fecha</Form.Label>
-                                        <Form.Control type="date" name="date" />
+                                        <Form.Control type="date" name="date" value={this.state.appointment.date} onChange={this.handleChange} />
                                     </Form.Group>
                                     <Form.Group>
                                         <Form.Label>Hora</Form.Label>
-                                        <Form.Control type="time" name="time" />
+                                        <Form.Control type="time" name="time" value={this.state.appointment.time} onChange={this.handleChange} />
                                     </Form.Group>
                                     <Form.Group>
                                         <Form.Label>Motivo de la consulta</Form.Label>
-                                        <Form.Control type="text" name="motive" />
+                                        <Form.Control type="text" name="motive" value={this.state.appointment.motive} onChange={this.handleChange} />
                                     </Form.Group>
-
-                                    <Button variant="primary" type="submit">Solicitar cita</Button>
+                                    <Button variant="info" type="submit">Solicitar cita</Button>
                                 </Form>
                             </Modal.Body>
-                            {/* <Modal.Footer>
-                            </Modal.Footer> */}
                         </Modal>
                     </Col>
                 </Row>
@@ -98,4 +109,4 @@ class Appointment extends Component {
     }
 }
 
-export default Appointment
+export default AppointmentForm

@@ -11,7 +11,7 @@ import AuthServices from './services/auth.services'
 import NavBar from './components/NavBar'
 import Login from './components/auth/Login'
 import Signup from './components/auth/Signup'
-import Appointment from './components/AppointmentForm';
+import AppointmentForm from './components/pages/Appointments/AppointmentForm';
 
 
 class App extends Component {
@@ -35,16 +35,17 @@ class App extends Component {
   render() {
 
     return (
-      <>
+      < div className="bg">
         <NavBar setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />
-
+        <div className="imgIndex">
+          <img src="../fisio1.jpg" alt="imgIndex" />
+        </div>
         <Switch>
-          <Route path="/appointment" render={() => <Appointment />} />
+          <Route path="/appointment" render={props => <AppointmentForm {...props} />} />
           <Route path="/signup" render={() => <Signup setTheUser={this.setTheUser} />} />
           <Route path="/login" render={props => <Login setTheUser={this.setTheUser} {...props} />} />
-          <Route path="/login" render={() => <Login />} />
         </Switch>
-      </>
+      </div>
     )
   }
 }
