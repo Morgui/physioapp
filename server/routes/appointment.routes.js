@@ -49,10 +49,10 @@ router.post('/', (req, res, next) => {
                 reference: Appointment.generateReference(6)
             })
         })
-        .then(result => {
+        .then(newAppointment => {
             res.json({
                 message: "Creada la cita satisfactoriamente",
-                data: result
+                data: newAppointment
             });
         })
         .catch(err => console.log(err))

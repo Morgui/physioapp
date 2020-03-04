@@ -13,6 +13,7 @@ import Home from './components/pages/Home'
 import Login from './components/auth/Login'
 import Signup from './components/auth/Signup'
 import AppointmentForm from './components/pages/Appointments/AppointmentForm'
+import AppointmentCreated from './components/pages/Appointments/AppointmentCreated';
 
 
 class App extends Component {
@@ -40,9 +41,10 @@ class App extends Component {
         <NavBar setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />
         <Switch>
           <Route exact path="/" render={() => <Home />} />
-          <Route path="/appointment" render={props => <AppointmentForm {...props} />} />
+          <Route exact path="/appointment" render={match => <AppointmentForm {...match} />} />
+          <Route path="/appointment/created/:reference" render={match => <AppointmentCreated {...match} />} />
           <Route path="/signup" render={() => <Signup setTheUser={this.setTheUser} />} />
-          <Route path="/login" render={props => <Login setTheUser={this.setTheUser} {...props} />} />
+          <Route path="/login" render={match => <Login setTheUser={this.setTheUser} {...match} />} />
         </Switch>
       </div>
     )

@@ -9,7 +9,10 @@ const appointmentSchema = new Schema({
     },
     date: Date,
     motive: String,
-    reference: String
+    reference: {
+        type: 'String',
+        unique: true
+    },
 }, {
     timestamps: true
 });

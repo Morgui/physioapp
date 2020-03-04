@@ -32,7 +32,7 @@
 
 - /admin/patients (para acceder al listado de pacientes) tendría un search para filtrar la búsqueda //Componente patientsList
 
-- /admin/patients/:id (acceder a la ficha del paciente) Componente patientDetails
+- /admin/patients/:id (acceder a la ficha del paciente) Componente PatientDetails
 
 - "para patients hay que crear un service para obtener toda la información relacionada con los pacientes"
 

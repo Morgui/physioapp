@@ -4,8 +4,10 @@ const Schema = mongoose.Schema;
 const patientSchema = new Schema({
     name: String,
     surname: String,
-    email: String
-
+    email: {
+        type: 'String',
+        unique: true
+    },
 }, {
     timestamps: true
 });
