@@ -6,29 +6,34 @@ const Patient = require('../models/Patient.model')
 
 /* GET appointment */
 router.get('/', (req, res, next) => {
-    res.json({ "listado": "de citas" });
-});
+    let options = {}
 
+    Appointment.find(options).populate('patientId').then(results => {
+        console.log(results)
+        res.json(results)
+    })
+});
+/* POST appoinment */
 router.post('/', (req, res, next) => {
-    const newPatientData = req.body
+    const appointmentData = req.body
 
     //tirar del email para saber si el paciente existe
-    const email = newPatientData.email;
+    const email = appointmentData.email;
     //Unir fecha y hora en la variable date para el modelo appointment
-    let date = new Date(Date.parse(`${newPatientData.date}T${newPatientData.time}`))
+    let date = new Date(Date.parse(`${appointmentData.date}T${appointmentData.time}`))
 
     // Crear un patient con los datos, si no existiera. En cualquier caso se obtiene el paciente en una variable para uso posterior
     Patient.findOne({ email }).then(patient => {
-        console.log(newPatientData)
+        console.log(appointmentData)
 
         if (patient) {
             console.log("Existe patient", patient)
             return patient;
         } else {
             return Patient.create({
-                name: newPatientData.name,
-                surname: newPatientData.surname,
-                email: newPatientData.email
+                name: appointmentData.name,
+                surname: appointmentData.surname,
+                email: appointmentData.email
             }).then(patient => {
                 console.log("No existe pero se ha creado", patient)
                 return patient
@@ -40,7 +45,7 @@ router.post('/', (req, res, next) => {
             return Appointment.create({
                 patientId: patient.id,
                 date,
-                motive: newPatientData.motive,
+                motive: appointmentData.motive,
                 reference: Appointment.generateReference(6)
             })
         })

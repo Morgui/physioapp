@@ -1,17 +1,18 @@
 .bg {
   height: 100vh;
-  background-color: #ddf6dd;
+  background-color: #dff3df;
   overflow: scroll;
 }
 
-.imgIndex{
+/* .imgIndex{
  width: 100%;
 }
 
 .imgIndex img {
   width: 100%;
   margin-bottom: 5%;
-}
+} */
+
 /* .App-header {
   background-color: #282c34;
   min-height: 100vh;

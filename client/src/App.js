@@ -4,14 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
 
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
 import AuthServices from './services/auth.services'
 
 import NavBar from './components/NavBar'
+import Home from './components/pages/Home'
 import Login from './components/auth/Login'
 import Signup from './components/auth/Signup'
-import AppointmentForm from './components/pages/Appointments/AppointmentForm';
+import AppointmentForm from './components/pages/Appointments/AppointmentForm'
 
 
 class App extends Component {
@@ -37,10 +38,8 @@ class App extends Component {
     return (
       < div className="bg">
         <NavBar setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />
-        <div className="imgIndex">
-          <img src="../fisio1.jpg" alt="imgIndex" />
-        </div>
         <Switch>
+          <Route exact path="/" render={() => <Home />} />
           <Route path="/appointment" render={props => <AppointmentForm {...props} />} />
           <Route path="/signup" render={() => <Signup setTheUser={this.setTheUser} />} />
           <Route path="/login" render={props => <Login setTheUser={this.setTheUser} {...props} />} />

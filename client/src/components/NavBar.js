@@ -30,22 +30,20 @@ class Navigation extends Component {
 
         return (
 
-            <Navbar className="navbar" expand="lg">
+            <Navbar className="navbar" expand="lg" bg="light">
                 <Navbar.Brand href="/">PhysioApp</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
+                        <Nav.Link as="div"> <Link to="/">Inicio</Link></Nav.Link>
+                        <Nav.Link as="div"> <Link to="/appointment">Cita Online</Link></Nav.Link>
                         {this.props.loggedInUser ?
                             <>
-                                <Nav.Link as="div"> <Link to="/">PhysioApp</Link></Nav.Link>
-                                <Nav.Link as="div"> <Link to="/appointment">Cita Online</Link></Nav.Link>
                                 <Nav.Link onClick={this.logout}>LogOut</Nav.Link>
-                                <Nav.Link as="div"><Link to="/profile">{greeting}</Link></Nav.Link>
+                                <Nav.Link as="div"><Link to="/admin">{greeting}</Link></Nav.Link>
                             </>
                             :
                             <>
-                                <Nav.Link as="div"> <Link to="/">PhysioApp</Link></Nav.Link>
-                                <Nav.Link as="div"> <Link to="/appointment">Cita Online</Link></Nav.Link>
                                 <Nav.Link as="div"> <Link to="/signup">SignUp</Link></Nav.Link>
                                 <Nav.Link as="div"> <Link to="/login">LogIn</Link></Nav.Link>
                                 <Nav.Link as="div">{greeting}</Nav.Link>

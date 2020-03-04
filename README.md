@@ -26,7 +26,9 @@
 
 - en la carpeta pages, crear componentes que seran las paginas:
 
-- /admin (una vez logueado al profesional se le debe redireccionar directamente) Componente adminIndex: debe aparecerle un resumen de las citas del día
+- /admin (una vez logueado al profesional se le debe redireccionar directamente) Componente adminIndex: debe aparecerle un resumen de las citas del día (Switchs con subrutas?)
+
+- /admin/appointments (para listar las citas del día y posteriores)
 
 - /admin/patients (para acceder al listado de pacientes) tendría un search para filtrar la búsqueda //Componente patientsList
 
