@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import AppointmentService from '../../../services/appointment.services'
+import AppointmentService from '../../../../services/appointment.services'
 import AppointmentCard from './appointmentCard'
 
 class AppointmentList extends Component {

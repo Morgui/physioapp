@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 
 import moment from 'moment';
-import '../../../moment.locale'
+import '../../../../moment.locale'
 
 class AppointmentCard extends Component {
 
@@ -25,8 +25,7 @@ class AppointmentCard extends Component {
                 <Col md={2}>
                     <Card className="card-appointment">
                         <Card.Body>
-                            <Card.Text>{this.state.item.patientId.name}</Card.Text>
-                            <Card.Text>{this.state.item.patientId.surname}</Card.Text>
+                            <Card.Text>{this.state.item.patientId.name} {this.state.item.patientId.surname}</Card.Text>
                             <hr></hr>
                             <Card.Text>{this.dateParse(this.state.item.date, "L")}</Card.Text>
                             <Card.Text>{this.dateParse(this.state.item.date, "LT")} </Card.Text>

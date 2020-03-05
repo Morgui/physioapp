@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -15,7 +14,7 @@ import Signup from './components/auth/Signup'
 import AppointmentForm from './components/pages/Appointments/AppointmentForm'
 import AppointmentCreated from './components/pages/Appointments/AppointmentCreated';
 import AdminIndex from './components/pages/Admin/AdminIndex';
-import AppointmentList from './components/pages/Admin/AppointmentList';
+import AppointmentList from './components/pages/Admin/AppointmentList/AppointmentList';
 
 
 class App extends Component {
