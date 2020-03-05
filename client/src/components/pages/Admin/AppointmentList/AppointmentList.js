@@ -29,7 +29,7 @@ class AppointmentList extends Component {
             <>
                 <p>AppointmentList</p>
 
-                {this.state.appointments.map(elm => <AppointmentCard key={elm._id} item={elm} />)}
+                {this.state.appointments.map(elm => <AppointmentCard key={elm._id} appointment={elm} />)}
                 {/*{this.state.appointments.map(elm => <AppointmentCard key={elm._id} {...elm} />)} */}
             </>
         )
