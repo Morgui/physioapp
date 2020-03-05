@@ -14,6 +14,8 @@ import Login from './components/auth/Login'
 import Signup from './components/auth/Signup'
 import AppointmentForm from './components/pages/Appointments/AppointmentForm'
 import AppointmentCreated from './components/pages/Appointments/AppointmentCreated';
+import AdminIndex from './components/pages/Admin/AdminIndex';
+import AppointmentList from './components/pages/Admin/AppointmentList';
 
 
 class App extends Component {
@@ -45,6 +47,9 @@ class App extends Component {
           <Route path="/appointment/created/:reference" render={match => <AppointmentCreated {...match} />} />
           <Route path="/signup" render={() => <Signup setTheUser={this.setTheUser} />} />
           <Route path="/login" render={match => <Login setTheUser={this.setTheUser} {...match} />} />
+
+          <Route exact path="/admin" render={() => <AdminIndex />} />
+          <Route path="/admin/appointments" render={() => <AppointmentList />} />
         </Switch>
       </div>
     )

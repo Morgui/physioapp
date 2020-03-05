@@ -7,13 +7,17 @@ const Patient = require('../models/Patient.model')
 /* GET appointment */
 router.get('/', (req, res, next) => {
     let options = {}
+    let query = req.query;
+
+    if (query.reference) {
+        options['reference'] = query.reference
+    }
 
     Appointment.find(options).populate('patientId').then(results => {
-        console.log(results)
         res.json(results)
     })
 });
-/* POST appoinment */
+/* POST appointment */
 router.post('/', (req, res, next) => {
     const appointmentData = req.body
 
@@ -46,7 +50,7 @@ router.post('/', (req, res, next) => {
                 patientId: patient.id,
                 date,
                 motive: appointmentData.motive,
-                reference: Appointment.generateReference(6)
+                reference: Appointment.generateReference(8)
             })
         })
         .then(newAppointment => {

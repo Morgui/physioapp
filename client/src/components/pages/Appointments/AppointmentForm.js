@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import Container from 'react-bootstrap/Container'
 import Modal from 'react-bootstrap/Modal'
 
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
+
 
 import AppointmenService from '../../../services/appointment.services'
 
@@ -44,13 +42,14 @@ class AppointmentForm extends Component {
                 this.setState({ createdAppointment: result.data })
                 return result
             })
+            .catch(err => console.log(err))
     }
 
     handleSubmit = e => {
         e.preventDefault()
         this.createAppointment(this.state.appointment).then(appointment => {
             this.props.history.push(`/appointment/created/${appointment.data.reference}`)
-        })
+        }).catch(err => console.log(err))
     }
 
     handleClose = () => this.setState({ showForm: false })
