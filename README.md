@@ -22,6 +22,8 @@
 
 - *TODO a futuro: Endpoint que devuelva la lista de horas disponibles de un día en concreto (de momento va devolver la misma lista)
 
+- *TODO: Crear un filtro en el listado de citas para que no devuelva las viejas por defecto. Usando un query para que devuelva las citas antiguas para mostrarlas en las graficas.
+
 ## Pasos a seguir de endpoints en client (react)
 
 - en la carpeta pages, crear componentes que seran las paginas:

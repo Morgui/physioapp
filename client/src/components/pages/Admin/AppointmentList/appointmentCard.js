@@ -11,7 +11,7 @@ class AppointmentCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            item: props.item
+            appointment: props.appointment
         }
     }
 
@@ -25,10 +25,10 @@ class AppointmentCard extends Component {
                 <Col md={2}>
                     <Card className="card-appointment">
                         <Card.Body>
-                            <Card.Text>{this.state.item.patientId.name} {this.state.item.patientId.surname}</Card.Text>
+                            <Card.Text>{this.state.appointment.patientId.name} {this.state.appointment.patientId.surname}</Card.Text>
                             <hr></hr>
-                            <Card.Text>{this.dateParse(this.state.item.date, "L")}</Card.Text>
-                            <Card.Text>{this.dateParse(this.state.item.date, "LT")} </Card.Text>
+                            <Card.Text>{this.dateParse(this.state.appointment.date, "L")}</Card.Text>
+                            <Card.Text>{this.dateParse(this.state.appointment.date, "LT")} </Card.Text>
                         </Card.Body>
                     </Card>
                 </Col>

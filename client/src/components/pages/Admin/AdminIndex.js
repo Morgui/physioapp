@@ -12,6 +12,9 @@ class AdminIndex extends Component {
                 <Link to="/admin/appointments">
                     <h3>AppointmentList</h3>
                 </Link>
+                <Link to="/admin/patients">
+                    <h3>PatientList</h3>
+                </Link>
             </>
         )
     }

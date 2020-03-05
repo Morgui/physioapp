@@ -15,6 +15,7 @@ import AppointmentForm from './components/pages/Appointments/AppointmentForm'
 import AppointmentCreated from './components/pages/Appointments/AppointmentCreated';
 import AdminIndex from './components/pages/Admin/AdminIndex';
 import AppointmentList from './components/pages/Admin/AppointmentList/AppointmentList';
+import PatientList from './components/pages/Admin/Patients/PatientList';
 
 
 class App extends Component {
@@ -50,6 +51,7 @@ class App extends Component {
             <>
               <Route exact path="/admin" render={() => <AdminIndex loggedInUser={this.state.loggedInUser} />} />
               <Route path="/admin/appointments" render={() => <AppointmentList />} />
+              <Route path="/admin/patients" render={() => <PatientList />} />
             </>
           ) : (
               <Redirect to="/" />
