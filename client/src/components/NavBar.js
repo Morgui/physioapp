@@ -47,6 +47,7 @@ class Navigation extends Component {
                                 <Nav.Link as="div"> <Link to="/signup">SignUp</Link></Nav.Link>
                                 <Nav.Link as="div"> <Link to="/login">LogIn</Link></Nav.Link>
                                 <Nav.Link as="div">{greeting}</Nav.Link>
+
                             </>}
                     </Nav>
                 </Navbar.Collapse>

@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
 
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 import AuthServices from './services/auth.services'
 
@@ -47,9 +47,14 @@ class App extends Component {
           <Route path="/appointment/created/:reference" render={match => <AppointmentCreated {...match} />} />
           <Route path="/signup" render={() => <Signup setTheUser={this.setTheUser} />} />
           <Route path="/login" render={match => <Login setTheUser={this.setTheUser} {...match} />} />
-
-          <Route exact path="/admin" render={() => <AdminIndex />} />
-          <Route path="/admin/appointments" render={() => <AppointmentList />} />
+          {this.state.loggedInUser ? (
+            <>
+              <Route path="/admin" render={() => <AdminIndex loggedInUser={this.state.loggedInUser} />} />
+              <Route path="/admin/appointments" render={() => <AppointmentList />} />
+            </>
+          ) : (
+              <Redirect to="/" />
+            )}
         </Switch>
       </div>
     )
