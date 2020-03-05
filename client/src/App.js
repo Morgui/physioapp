@@ -49,7 +49,7 @@ class App extends Component {
           <Route path="/login" render={match => <Login setTheUser={this.setTheUser} {...match} />} />
           {this.state.loggedInUser ? (
             <>
-              <Route path="/admin" render={() => <AdminIndex loggedInUser={this.state.loggedInUser} />} />
+              <Route exact path="/admin" render={() => <AdminIndex loggedInUser={this.state.loggedInUser} />} />
               <Route path="/admin/appointments" render={() => <AppointmentList />} />
             </>
           ) : (

@@ -22,7 +22,7 @@ class AppointmentCard extends Component {
     render() {
         return (
             <>
-                <Col md={4}>
+                <Col md={2}>
                     <Card className="card-appointment">
                         <Card.Body>
                             <Card.Text>{this.state.item.patientId.name}</Card.Text>

@@ -28,6 +28,7 @@ class AppointmentList extends Component {
         return (
             <>
                 <p>AppointmentList</p>
+
                 {this.state.appointments.map(elm => <AppointmentCard key={elm._id} item={elm} />)}
                 {/*{this.state.appointments.map(elm => <AppointmentCard key={elm._id} {...elm} />)} */}
             </>
