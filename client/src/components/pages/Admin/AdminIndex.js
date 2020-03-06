@@ -7,13 +7,13 @@ class AdminIndex extends Component {
     render() {
         return (
             <>
-                <p>AdminIndex</p>
+                <p>Index</p>
                 <br />
                 <Link to="/admin/appointments">
-                    <h3>AppointmentList</h3>
+                    <h4>Citas</h4>
                 </Link>
                 <Link to="/admin/patients">
-                    <h3>PatientList</h3>
+                    <h4>Pacientes</h4>
                 </Link>
             </>
         )

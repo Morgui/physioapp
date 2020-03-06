@@ -40,7 +40,6 @@
 
 
 - Crear Home para la pagina principal:
-          <Route exact path="/" render={() => <Home />} />
 
 - Crear About para página sobre nosotros
 

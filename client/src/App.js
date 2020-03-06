@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+
+/* ---- RRD COMPONENTS ---- */
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import AuthServices from './services/auth.services'
 
+/* ---- UI COMPONENTS ---- */
 import NavBar from './components/NavBar'
 import Home from './components/pages/Home'
 import Login from './components/auth/Login'

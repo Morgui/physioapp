@@ -56,6 +56,7 @@ class AppointmentForm extends Component {
     handleShow = () => this.setState({ showForm: true })
 
     render() {
+        //console.log("TODO: Modificar el campo de hora por un select")
         return (
             <div>
                 <Button variant="success" onClick={this.handleShow}>Pedir Cita</Button>

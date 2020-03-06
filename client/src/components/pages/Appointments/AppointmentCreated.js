@@ -20,11 +20,12 @@ class AppointmentCreated extends Component {
     componentDidMount = () => this.getAppointmentByReference(this.state.reference)
 
     getAppointmentByReference = (reference) => {
-        this.service.getAppointmentByReference(reference).then(result => {
-            console.log(result)
-            result ? this.setState({ appointment: result }) : this.props.history.push("/appointment")
+        this.service.getAppointmentByReference(reference)
+            .then(result => {
+                console.log(result)
+                result ? this.setState({ appointment: result }) : this.props.history.push("/appointment")
 
-        }).catch(err => console.log(err))
+            }).catch(err => console.log(err))
     }
 
     dateParse = (date, format) => {

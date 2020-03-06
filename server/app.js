@@ -14,9 +14,10 @@ require('./configs/session.config')(app)
 
 // Base Url
 
-app.use('/', require(('./routes/index')))
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/appointment', require('./routes/appointment.routes'))
+app.use('/api/patient', require('./routes/patient.routes'))
+
 
 app.use((req, res) => {
     res.sendFile(__dirname + "/public/index.html");
