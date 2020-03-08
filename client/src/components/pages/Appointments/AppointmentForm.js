@@ -16,7 +16,7 @@ class AppointmentForm extends Component {
 
     constructor(props) {
         super(props)
-        this.service = new AppointmenService()
+        this.appointmentService = new AppointmenService()
         this.state = {
             appointment: {
                 name: '',
@@ -27,6 +27,7 @@ class AppointmentForm extends Component {
             },
             showForm: false,
             createdAppointment: null,
+            availableHours: []
         }
     }
 
@@ -37,9 +38,21 @@ class AppointmentForm extends Component {
         })
     }
 
+    onDateChange = e => {
+        let { name, value } = e.target
+        this.appointmentService.getFreeHoursByDate(value)
+            .then(results => {
+                this.setState({
+                    appointment: { ...this.state.appointment, [name]: value },
+                    availableHours: results
+                })
+            })
+            .catch(err => console.log(err))
+    }
+
     createAppointment = (data) => {
         console.log("DATA:", data)
-        return this.service.createAppointment(data)
+        return this.appointmentService.createAppointment(data)
             .then(result => {
                 console.log(result)
                 this.setState({ createdAppointment: result.data })
@@ -50,16 +63,17 @@ class AppointmentForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.createAppointment(this.state.appointment).then(appointment => {
-            this.props.history.push(`/appointment/created/${appointment.data.reference}`)
-        }).catch(err => console.log(err))
+        this.createAppointment(this.state.appointment)
+            .then(appointment => {
+                this.props.history.push(`/appointment/created/${appointment.data.reference}`)
+            })
+            .catch(err => console.log(err))
     }
 
     handleClose = () => this.setState({ showForm: false })
     handleShow = () => this.setState({ showForm: true })
 
     render() {
-        //console.log("TODO: Modificar el campo de hora por un select")
         return (
             <div>
                 <Container>
@@ -99,11 +113,14 @@ class AppointmentForm extends Component {
                                         </Form.Group>
                                         <Form.Group>
                                             <Form.Label>Fecha</Form.Label>
-                                            <Form.Control type="date" name="date" value={this.state.appointment.date} onChange={this.handleChange} />
+                                            <Form.Control type="date" name="date" value={this.state.appointment.date} onChange={this.onDateChange} />
                                         </Form.Group>
                                         <Form.Group>
                                             <Form.Label>Hora</Form.Label>
-                                            <Form.Control type="time" name="time" value={this.state.appointment.time} onChange={this.handleChange} />
+                                            <select name="time" value={this.state.appointment.time} onChange={this.handleChange} className="form-control" required>
+                                                <option value="">---</option>
+                                                {this.state.availableHours.map(elm => <option value={elm} key={elm}>{elm}</option>)}
+                                            </select>
                                         </Form.Group>
                                         <Form.Group>
                                             <Form.Label>Motivo de la consulta</Form.Label>

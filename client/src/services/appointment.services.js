@@ -12,5 +12,6 @@ export default class Services {
     getAllAppointments = () => this.service.get('/appointment').then(response => response.data)
     getAppointmentDetails = id => this.service.get(`/appointment/${id}`).then(response => response.data)
     createAppointment = appointment => this.service.post('/appointment', appointment).then(response => response.data)
-    getAppointmentByReference = reference => this.service.get(`/appointment?reference=${reference}`).then(response => response.data[0])
+    getAppointmentByReference = reference => this.service.get(`/appointment/${reference}`).then(response => response.data)
+    getFreeHoursByDate = (date) => this.service.post('/appointment/available-hours', { date }).then(response => response.data)
 }

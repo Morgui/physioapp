@@ -4,21 +4,46 @@ const router = express.Router();
 const Appointment = require('../models/Appointment.model')
 const Patient = require('../models/Patient.model')
 
+const moment = require('moment')
+
 /* GET appointment */
 router.get('/', (req, res, next) => {
     let options = {}
     let query = req.query;
 
-    if (query.reference) {
-        options['reference'] = query.reference
-    }
+    query.old ? null : options['date'] = { $gte: new Date() }
 
-    // if (query.old){
-    //     options['old'] 
-    // }
-
-    Appointment.find(options).populate('patientId').sort({ date: 'asc' }).then(results => res.json(results))
+    Appointment.find(options).populate('patientId').sort({ date: 'asc' })
+        .then(results => res.json(results))
+        .catch(err => console.log(err))
 });
+
+/* POST appointment available hours */
+router.post('/available-hours', (req, res, next) => {
+    const { date } = req.body
+    const availableHours = ['9:00', '10:00', '11:00', '12:00', '13:00', '16:00', '17:00', '18:00', '19:00', '20:00'];
+    const day = moment(date).startOf('day');
+    const nextDay = moment(day).endOf('day');
+
+    //parametros para buscar en la base de datos
+    let options = {
+        date: {
+            $gte: day, $lt: nextDay
+        }
+    }
+    //se crea un array con las horas guardadas y se quita de las horas disponibles para evitar citas duplicadas
+    Appointment.find(options)
+        .then(results => {
+            const usedHours = results.map(elem => `${elem.date.getHours()}:00`)
+            return res.json(availableHours.filter(elem => usedHours.includes(elem) === false))
+        })
+});
+
+/* GET appointment by reference */
+router.get('/:reference', (req, res, next) => Appointment.findOne({ reference: req.params.reference }).populate('patientId')
+    .then(appointment => res.json(appointment))
+    .catch(err => console.log(err))
+);
 
 
 /* POST appointment */
