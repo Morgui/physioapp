@@ -13,6 +13,10 @@ router.get('/', (req, res, next) => {
         options['reference'] = query.reference
     }
 
+    // if (query.old){
+    //     options['old'] 
+    // }
+
     Appointment.find(options).populate('patientId').sort({ date: 'asc' }).then(results => res.json(results))
 });
 
@@ -20,28 +24,23 @@ router.get('/', (req, res, next) => {
 /* POST appointment */
 router.post('/', (req, res, next) => {
 
+    const { email, name, surname, date, time, motive } = req.body
 
-    const appointmentData = req.body
-    //Deconstructing (const{ email, name, surname, } = req.body)
-
-    //tirar del email para saber si el paciente existe
-    const email = appointmentData.email;
     //Unir fecha y hora en la variable date para el modelo appointment
-    let date = new Date(Date.parse(`${appointmentData.date}T${appointmentData.time}`))
+    let stringDate = new Date(Date.parse(`${date}T${time}`))
 
     // Crear un patient con los datos, si no existiera. En cualquier caso se obtiene el paciente en una variable para uso posterior
     Patient.findOne({ email })
         .then(patient => {
-            console.log(appointmentData)
 
             if (patient) {
                 console.log("Existe patient", patient)
                 return patient;
             } else {
                 return Patient.create({
-                    name: appointmentData.name, //Al hacer el deconstructing el appointmentData iría fuera
-                    surname: appointmentData.surname,
-                    email: appointmentData.email
+                    name, //Al hacer el deconstructing el appointmentData iría fuera
+                    surname,
+                    email
                 })
                     .then(patient => patient)
             }
@@ -50,8 +49,8 @@ router.post('/', (req, res, next) => {
             //Se crea la cita con el modelo Appointment, usando el id del paciente como referencia en esta
             return Appointment.create({
                 patientId: patient.id,
-                date,
-                motive: appointmentData.motive,
+                date: stringDate,
+                motive,
                 reference: Appointment.generateReference(8)
             })
         })

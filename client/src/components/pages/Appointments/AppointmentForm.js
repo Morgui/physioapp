@@ -116,8 +116,6 @@ class AppointmentForm extends Component {
                         </Col>
                     </Row>
                 </Container>
-
-
             </div>
         )
     }

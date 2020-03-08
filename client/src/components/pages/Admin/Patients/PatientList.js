@@ -22,9 +22,7 @@ class PatientList extends Component {
         this.service = new PatientService() //this.service debería ser this.patientservice o PatientService
     }
 
-    handleChange = e => {
-        this.setState({ searchBar: e.target.value });
-    }
+    handleChange = e => this.setState({ searchBar: e.target.value })
 
     render() {
         return (

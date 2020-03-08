@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 
+/* ---- STYLES ---- */
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-
 
 /* ---- RRD COMPONENTS ---- */
 import { Switch, Route, Redirect } from 'react-router-dom'
 
+/* ---- SERVICES ---- */ 
 import AuthServices from './services/auth.services'
 
 /* ---- UI COMPONENTS ---- */
 import NavBar from './components/NavBar'
-import Home from './components/pages/Home'
 import Login from './components/auth/Login'
 import Signup from './components/auth/Signup'
+
+/* ---- PAGES COMPONENTS ---- */
+import Home from './components/pages/Home'
 import AppointmentForm from './components/pages/Appointments/AppointmentForm'
 import AppointmentCreated from './components/pages/Appointments/AppointmentCreated';
 import AdminIndex from './components/pages/Admin/AdminIndex';

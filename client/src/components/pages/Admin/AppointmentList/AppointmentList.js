@@ -23,9 +23,7 @@ class AppointmentList extends Component {
         this.service = new AppointmentService()
     }
 
-    componentDidMount = () => {
-        this.getAppointments()
-    }
+    componentDidMount = () => this.getAppointments()
 
     getAppointments = () => {
         return this.service.getAllAppointments()
