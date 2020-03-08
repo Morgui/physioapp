@@ -43,8 +43,7 @@ router.post('/', (req, res, next) => {
                     surname: appointmentData.surname,
                     email: appointmentData.email
                 })
-                .then(patient => patient
-)
+                    .then(patient => patient)
             }
         })
         .then(patient => {

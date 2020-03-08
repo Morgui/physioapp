@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import './appointmentCard.css'
+
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 
@@ -22,7 +24,7 @@ class AppointmentCard extends Component {
     render() {
         return (
             <>
-                <Col md={2}>
+                <Col sm={6} md={3} lg={3}>
                     <Card className="card-appointment">
                         <Card.Body>
                             <Card.Text>{this.state.appointment.patientId.name} {this.state.appointment.patientId.surname}</Card.Text>

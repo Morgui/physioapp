@@ -3,8 +3,15 @@ import React, { Component } from 'react'
 import AppointmentService from '../../../../services/appointment.services'
 import AppointmentCard from './appointmentCard'
 
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Table from 'react-bootstrap/Table'
 import { Link } from 'react-router-dom'
+
+import AppointmentTableRow from './appointmentTableRow'
+import AdminMenu from '../AdminMenu'
 
 class AppointmentList extends Component {
 
@@ -57,17 +64,37 @@ class AppointmentList extends Component {
         const today = new Date()
 
         return (
-            <>
-                <h4>Citas de HOY</h4>
-                {this.getAppointmentsDay(today.getDate(), today.getMonth(), today.getFullYear()).length > 0 ? this.getAppointmentsDay(today.getDate(), today.getMonth(), today.getFullYear()).map(elm => <AppointmentCard key={elm._id} appointment={elm} />) : <p>No hay citas para hoy</p>}
-                <hr />
-                <h5>Próximas Citas</h5>
-                {this.getFutureAppointments(today).map(elm => <AppointmentCard key={elm._id} appointment={elm} />)}
-                <br />
-                <Button variant="outline-info" size="sm">
-                    <Link to='/admin'>Volver</Link>
-                </Button>
-            </>
+            <Container fluid>
+                <Row>
+                    <AdminMenu />
+                    <Col sm={8}>
+                        <h4>Citas de HOY</h4>
+                        <Row>
+
+                            {this.getAppointmentsDay(today.getDate(), today.getMonth(), today.getFullYear()).length > 0 ? this.getAppointmentsDay(today.getDate(), today.getMonth(), today.getFullYear()).map(elm => <AppointmentCard key={elm._id} appointment={elm} />) : <p>No hay citas para hoy</p>}
+                        </Row>
+                        <hr />
+
+                        <h5>Próximas Citas</h5>
+                        <Table striped bordered hover>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.getFutureAppointments(today).map(elm => <AppointmentTableRow key={elm._id} appointment={elm} />)}
+                            </tbody>
+                        </Table>
+                        <br />
+                        <Button variant="outline-info" size="sm">
+                            <Link to='/admin'>Volver</Link>
+                        </Button>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 
