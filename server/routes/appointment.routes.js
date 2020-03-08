@@ -38,11 +38,10 @@ router.post('/', (req, res, next) => {
                 return patient;
             } else {
                 return Patient.create({
-                    name, //Al hacer el deconstructing el appointmentData iría fuera
+                    name,
                     surname,
                     email
                 })
-                    .then(patient => patient)
             }
         })
         .then(patient => {

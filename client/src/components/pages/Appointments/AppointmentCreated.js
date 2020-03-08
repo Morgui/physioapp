@@ -19,13 +19,13 @@ class AppointmentCreated extends Component {
             reference: props.match.params.reference,
             appointment: {}
         }
-        this.service = new AppointmentService()
+        this.appointmentService = new AppointmentService()
     }
 
     componentDidMount = () => this.getAppointmentByReference(this.state.reference)
 
     getAppointmentByReference = (reference) => {
-        this.service.getAppointmentByReference(reference)
+        this.appointmentService.getAppointmentByReference(reference)
             .then(result => {
                 console.log(result)
                 result ? this.setState({ appointment: result }) : this.props.history.push("/appointment")

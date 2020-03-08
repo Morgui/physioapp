@@ -7,7 +7,7 @@ import './App.css';
 /* ---- RRD COMPONENTS ---- */
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-/* ---- SERVICES ---- */ 
+/* ---- SERVICES ---- */
 import AuthServices from './services/auth.services'
 
 /* ---- UI COMPONENTS ---- */
@@ -29,7 +29,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = { loggedInUser: false }
-    this.services = new AuthServices()
+    this.authServices = new AuthServices()
   }
 
   componentDidUpdate = (prevProps, prevState) => console.log("El estado de App se ha actualizado:", this.state)
@@ -37,7 +37,7 @@ class App extends Component {
 
   setTheUser = userObj => this.setState({ loggedInUser: userObj })
   fetchUser = () => {
-    this.services.loggedin()
+    this.authServices.loggedin()
       .then(theUser => this.setState({ loggedInUser: theUser }))
       .catch(() => this.setState({ loggedInUser: false }))
   }

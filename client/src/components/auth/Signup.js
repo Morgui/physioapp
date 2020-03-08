@@ -16,7 +16,7 @@ class Signup extends Component {
             username: '',
             password: ''
         }
-        this.services = new AuthServices()
+        this.authService = new AuthServices()
     }
 
     handleChange = e => {
@@ -25,7 +25,7 @@ class Signup extends Component {
     }
 
     postUser = () => {
-        this.services.signup(this.state)
+        this.authService.signup(this.state)
             .then(theLoggedNewUser => {
                 this.setState({ username: '', password: '' })
                 this.props.setTheUser(theLoggedNewUser)

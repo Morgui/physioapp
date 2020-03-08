@@ -20,13 +20,13 @@ class AppointmentList extends Component {
         this.state = {
             appointments: []
         }
-        this.service = new AppointmentService()
+        this.appointmentService = new AppointmentService()
     }
 
     componentDidMount = () => this.getAppointments()
 
     getAppointments = () => {
-        return this.service.getAllAppointments()
+        return this.appointmentService.getAllAppointments()
             .then(results => {
                 this.setState({ appointments: results })
                 console.log(results)
