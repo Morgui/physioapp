@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+
 import PatientService from '../../../../services/patient.services'
+
+import Button from 'react-bootstrap/Button'
 
 class PatientDetails extends Component {
     constructor(props) {
@@ -45,6 +48,11 @@ class PatientDetails extends Component {
                 <p>falta traer los motivos del appoinment</p>
                 <h5>Antecedentes</h5>
                 <p>Antecedentes: se recogen aquí tanto los antecedentes personales (lesiones pasadas, operaciones, tratamientos en curso…) como familiares</p>
+
+                <br />
+                <Button variant="outline-info" size="sm">
+                    <Link to='/'>Volver</Link>
+                </Button>
             </>
         )
     }

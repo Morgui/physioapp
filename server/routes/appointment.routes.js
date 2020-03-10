@@ -90,32 +90,21 @@ router.post('/', (req, res, next) => {
         .catch(err => console.log(err))
 })
 
-//Cancelar - borrar el appointment
-router.post("/:reference/delete", (req, res, next) => {
-    const removeRef = req.params.id
+router.post("/:id/update-state", (req, res, next) => {
+    const appointmentId = req.params.id
+    const { status } = req.body
+    // const nodemailer = new NodemailerService()
 
-    Playlist.findByIdAndRemove(removeRef)
-        .then(() => res.redirect("/"))
-        .catch(err => {
-            console.log("Hubo un error borrando el appointment en la BBDD: ", err)
+    Appointment.findByIdAndUpdate(appointmentId, { status }, {
+        useFindAndModify: false
+    })
+        .populate('patientId')
+        .then(result => {
+            // nodemailer.sendEmail(result.patientId.email, status)
+            return res.json(result)
         })
+        .catch(err => console.log(err))
 })
-
-// router.post("/:id/update-state", (req, res, next) => {
-//     const appointmentId = req.params.id
-//     const { status } = req.body
-//     const nodemailer = new NodemailerService()
-
-//     Appointment.findByIdAndUpdate(appointmentId, { status }, {
-//         useFindAndModify: false
-//     })
-//         .populate('patientId')
-//         .then(result => {
-//             nodemailer.sendEmail(result.patientId.email, status)
-//             return res.json(result)
-//         })
-//         .catch(err => console.log(err))
-// })
 
 
 module.exports = router;
