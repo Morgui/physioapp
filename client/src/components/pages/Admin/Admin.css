@@ -2,3 +2,8 @@
     height: 220px;
     object-fit: cover;
 }
+
+.menu{
+    margin-left: 0;
+    margin-right: 100px;
+}

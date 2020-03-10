@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Appointment = require('../models/Appointment.model')
 const Patient = require('../models/Patient.model')
-
+// const NodemailerService = require('../services/nodemailer.service')
 const moment = require('moment')
 
 /* GET appointment */
@@ -35,8 +35,9 @@ router.post('/available-hours', (req, res, next) => {
     Appointment.find(options)
         .then(results => {
             const usedHours = results.map(elem => `${elem.date.getHours()}:00`)
-            return res.json(availableHours.filter(elem => usedHours.includes(elem) === false))
+            return res.json(availableHours.filter(elem => !usedHours.includes(elem)))
         })
+        .catch(err => console.log({ err }))
 });
 
 /* GET appointment by reference */
@@ -79,6 +80,8 @@ router.post('/', (req, res, next) => {
             })
         })
         .then(newAppointment => {
+            // const nodemailer = new NodemailerService()
+            // nodemailer.sendEmail(email, 'pending')
             res.json({
                 message: "Creada la cita satisfactoriamente",
                 data: newAppointment
@@ -86,5 +89,33 @@ router.post('/', (req, res, next) => {
         })
         .catch(err => console.log(err))
 })
+
+//Cancelar - borrar el appointment
+router.post("/:reference/delete", (req, res, next) => {
+    const removeRef = req.params.id
+
+    Playlist.findByIdAndRemove(removeRef)
+        .then(() => res.redirect("/"))
+        .catch(err => {
+            console.log("Hubo un error borrando el appointment en la BBDD: ", err)
+        })
+})
+
+// router.post("/:id/update-state", (req, res, next) => {
+//     const appointmentId = req.params.id
+//     const { status } = req.body
+//     const nodemailer = new NodemailerService()
+
+//     Appointment.findByIdAndUpdate(appointmentId, { status }, {
+//         useFindAndModify: false
+//     })
+//         .populate('patientId')
+//         .then(result => {
+//             nodemailer.sendEmail(result.patientId.email, status)
+//             return res.json(result)
+//         })
+//         .catch(err => console.log(err))
+// })
+
 
 module.exports = router;

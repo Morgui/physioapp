@@ -39,7 +39,7 @@ class Navigation extends Component {
                         <Nav.Link as="div"> <Link to="/appointment">Cita Online</Link></Nav.Link>
                         {this.props.loggedInUser ?
                             <>
-                                <Nav.Link onClick={this.logout}>LogOut</Nav.Link>
+                                <Nav.Link onClick={this.logout}>Cerrar Sesión</Nav.Link>
                                 <Nav.Link as="div"><Link to="/admin">{greeting}</Link></Nav.Link>
                             </>
                             :

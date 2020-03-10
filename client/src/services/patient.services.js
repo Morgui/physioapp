@@ -9,6 +9,7 @@ export default class Services {
         })
     }
 
-    getAllPatients = () => this.service.get('/admin/patients').then(response => response.data)
-    getPatientDetails = id => this.service.get(`/admin/patients/${id}`).then(response => response.data)
+    getAllPatients = () => this.service.get('/patients').then(response => response.data)
+    getPatientDetails = id => this.service.get(`/patients/${id}`).then(response => response.data)
+    updatePatient = (id, patient) => this.service.put(`/patients/${id}`, patient).then(response => response.data)
 }

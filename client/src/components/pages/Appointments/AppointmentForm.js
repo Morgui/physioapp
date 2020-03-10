@@ -51,10 +51,8 @@ class AppointmentForm extends Component {
     }
 
     createAppointment = (data) => {
-        console.log("DATA:", data)
         return this.appointmentService.createAppointment(data)
             .then(result => {
-                console.log(result)
                 this.setState({ createdAppointment: result.data })
                 return result
             })
@@ -63,8 +61,11 @@ class AppointmentForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
+        console.log("lanza el service")
+        debugger
         this.createAppointment(this.state.appointment)
             .then(appointment => {
+                console.log("vuelve del service")
                 this.props.history.push(`/appointment/created/${appointment.data.reference}`)
             })
             .catch(err => console.log(err))

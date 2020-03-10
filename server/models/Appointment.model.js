@@ -10,12 +10,17 @@ const appointmentSchema = new Schema({
     date: Date,
     motive: String,
     reference: {
-        type: 'String',
+        type: String,
         unique: true
     },
+    status: {
+        type: String,
+        default: 'pending'
+    }
 }, {
     timestamps: true
 });
+
 
 appointmentSchema.statics.generateReference = function (numChart) {
     let result = '';

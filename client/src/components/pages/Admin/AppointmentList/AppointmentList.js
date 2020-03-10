@@ -63,16 +63,14 @@ class AppointmentList extends Component {
 
         return (
             <Container fluid>
-                <Row>
+                <Row className="margin">
                     <AdminMenu />
-                    <Col sm={8}>
+                    <Col sm={9}>
                         <h4>Citas de HOY</h4>
-                        <Row>
-
-                            {this.getAppointmentsDay(today.getDate(), today.getMonth(), today.getFullYear()).length > 0 ? this.getAppointmentsDay(today.getDate(), today.getMonth(), today.getFullYear()).map(elm => <AppointmentCard key={elm._id} appointment={elm} />) : <p>No hay citas para hoy</p>}
-                        </Row>
                         <hr />
-
+                        <Row>
+                            {this.getAppointmentsDay(today.getDate(), today.getMonth(), today.getFullYear()).length > 0 ? this.getAppointmentsDay(today.getDate(), today.getMonth(), today.getFullYear()).map(elm => <AppointmentCard key={elm._id} appointment={elm} />) : <p>No hay citas</p>}
+                        </Row>
                         <h5>Próximas Citas</h5>
                         <Table striped bordered hover>
                             <thead>
