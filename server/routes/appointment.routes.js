@@ -101,7 +101,7 @@ router.post("/:id/update-state", (req, res, next) => {
     })
         .populate('patientId')
         .then(result => {
-            nodemailer.sendEmail(result.patientId.email, status)
+            nodemailer.sendEmail(result.patientId.email, status, result.date, result.reference)
             return res.json(result)
         })
         .catch(err => console.log(err))
