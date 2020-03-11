@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import PatientService from '../../../../services/patient.services'
+import AppointmentService from '../../../../services/appointment.services'
 
 import Button from 'react-bootstrap/Button'
 
@@ -17,18 +18,31 @@ class PatientDetails extends Component {
                 age: '',
                 genre: '',
                 antecedents: ''
-            }
+            },
+            appoinments: [
+            ]
         }
         this.patientService = new PatientService()
+        this.appoinmentService = new AppointmentService()
     }
 
-    componentDidMount = () => this.getPatientDetail(this.state.patientId)
+    componentDidMount = () => {
+        this.getPatientDetail(this.state.patientId)
+        this.getOlderAppointments(this.state.patientId)
+    }
 
     getPatientDetail = (id) => {
         return this.patientService.getPatientDetails(id)
-            .then(results => {
-                console.log(results)
-                this.setState({ patient: results })
+            .then(patient => {
+                this.setState({ patient })
+            })
+            .catch(err => console.log(err))
+    }
+
+    getOlderAppointments = (id) => {
+        return this.appoinmentService.getOlderAppointments(id)
+            .then(appoinments => {
+                this.setState({ appoinments })
             })
             .catch(err => console.log(err))
     }
@@ -45,13 +59,17 @@ class PatientDetails extends Component {
                 <h5>Edad</h5>
                 <h5>Sexo</h5>
                 <h5>Motivos de la consulta</h5>
-                <p>falta traer los motivos del appoinment</p>
+
+                <ul>
+                    {this.state.appoinments.map(appointment => <li>{appointment.motive} - {appointment.date}</li>)}
+                </ul>
+
                 <h5>Antecedentes</h5>
                 <p>Antecedentes: se recogen aquí tanto los antecedentes personales (lesiones pasadas, operaciones, tratamientos en curso…) como familiares</p>
 
                 <br />
                 <Button variant="outline-info" size="sm">
-                    <Link to='/'>Volver</Link>
+                    <Link to='/admin/patients'>Volver</Link>
                 </Button>
             </>
         )

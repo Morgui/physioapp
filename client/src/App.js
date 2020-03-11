@@ -18,13 +18,12 @@ import Signup from './components/auth/Signup'
 /* ---- PAGES COMPONENTS ---- */
 import Home from './components/pages/Home'
 import AppointmentForm from './components/pages/Appointments/AppointmentForm'
-import AppointmentCreated from './components/pages/Appointments/AppointmentCreated';
-import AdminIndex from './components/pages/Admin/AdminIndex';
-import AppointmentList from './components/pages/Admin/AppointmentList/AppointmentList';
-import PatientList from './components/pages/Admin/Patients/PatientList';
+import AppointmentCreated from './components/pages/Appointments/AppointmentCreated'
+import AdminIndex from './components/pages/Admin/AdminIndex'
+import AppointmentList from './components/pages/Admin/AppointmentList/AppointmentList'
+import PatientList from './components/pages/Admin/Patients/PatientList'
 import PatientDetails from './components/pages/Admin/Patients/PatientDetails'
-// import PatientEdit from './components/pages/Admin/Patients/PatientEdit';
-
+import PatientEdit from './components/pages/Admin/Patients/PatientEdit'
 
 class App extends Component {
 
@@ -60,7 +59,7 @@ class App extends Component {
               <Route exact path="/admin" render={() => <AdminIndex loggedInUser={this.state.loggedInUser} />} />
               <Route path="/admin/appointments" render={() => <AppointmentList />} />
               <Route exact path="/admin/patients" render={() => <PatientList />} />
-              {/* <Route exact path="/admin/patients/:id/edit" render={match => <PatientEdit {...match} />} /> */}
+              <Route exact path="/admin/patients/:id/edit" render={match => <PatientEdit {...match} />} />
               <Route exact path="/admin/patients/:id" render={match => <PatientDetails {...match} />} />
             </>
           ) : (

@@ -11,6 +11,8 @@ router.get('/', (req, res, next) => {
     let options = {}
     let query = req.query;
 
+    query.patientId ? options['patientId'] = req.query.patientId : null
+
     query.old ? null : options['date'] = { $gte: new Date() }
 
     Appointment.find(options).populate('patientId').sort({ date: 'asc' })
@@ -60,7 +62,6 @@ router.post('/', (req, res, next) => {
         .then(patient => {
 
             if (patient) {
-                console.log("Existe patient", patient)
                 return patient;
             } else {
                 return Patient.create({
@@ -81,7 +82,7 @@ router.post('/', (req, res, next) => {
         })
         .then(newAppointment => {
             const nodemailer = new NodemailerService()
-            nodemailer.sendEmail(email, 'pending')
+            nodemailer.sendEmail(email, 'pending', newAppointment.date, newAppointment.reference)
             res.json({
                 message: "Creada la cita satisfactoriamente",
                 data: newAppointment

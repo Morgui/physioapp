@@ -61,8 +61,6 @@ class AppointmentForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        console.log("lanza el service")
-        debugger
         this.createAppointment(this.state.appointment)
             .then(appointment => {
                 console.log("vuelve del service")
