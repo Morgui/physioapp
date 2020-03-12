@@ -51,22 +51,21 @@ class PatientDetails extends Component {
         return (
             <>
                 <h1>Historial</h1>
-                <p><Link to={`/admin/patients/${this.state.patient._id}/edit`}>Editar</Link></p>
+                <p><Link to={`/admin/patients/${this.state.patient._id}/edit`}>Editar Historial</Link></p>
                 <h5>Nombre Completo</h5>
                 <p>{this.state.patient.name} {this.state.patient.surname}</p>
                 <h5>Datos de Contacto</h5>
                 <p>{this.state.patient.email}</p>
                 <h5>Edad</h5>
+                <p>{this.state.patient.age}</p>
                 <h5>Sexo</h5>
+                <p>{this.state.patient.genre}</p>
                 <h5>Motivos de la consulta</h5>
-
                 <ul>
                     {this.state.appoinments.map(appointment => <li>{appointment.motive} - {appointment.date}</li>)}
                 </ul>
-
                 <h5>Antecedentes</h5>
-                <p>Antecedentes: se recogen aquí tanto los antecedentes personales (lesiones pasadas, operaciones, tratamientos en curso…) como familiares</p>
-
+                <p>{this.state.patient.antecedents}</p>
                 <br />
                 <Button variant="outline-info" size="sm">
                     <Link to='/admin/patients'>Volver</Link>
