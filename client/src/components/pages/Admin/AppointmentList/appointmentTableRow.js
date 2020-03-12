@@ -42,7 +42,6 @@ class AppointmentTableRow extends Component {
                     <td>{this.state.appointment.patientId.name} {this.state.appointment.patientId.surname}</td>
                     <td>{this.dateParse(this.state.appointment.date, "L")}</td>
                     <td>{this.dateParse(this.state.appointment.date, "LT")}</td>
-                    {/* <td>{this.statusButton(this.state.appointment)}</td> */}
                     <td>{this.confirmButton(this.state.appointment)}</td>
                     <td>{this.cancelButton(this.state.appointment)}</td>
                 </tr>
