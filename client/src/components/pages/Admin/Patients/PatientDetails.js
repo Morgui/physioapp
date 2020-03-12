@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import PatientService from '../../../../services/patient.services'
 import AppointmentService from '../../../../services/appointment.services'
 
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 
 class PatientDetails extends Component {
@@ -49,29 +52,66 @@ class PatientDetails extends Component {
 
     render() {
         return (
-            <>
-                <h1>Historial</h1>
-                <p><Link to={`/admin/patients/${this.state.patient._id}/edit`}>Editar Historial</Link></p>
-                <h5>Nombre Completo</h5>
-                <p>{this.state.patient.name} {this.state.patient.surname}</p>
-                <h5>Datos de Contacto</h5>
-                <p>{this.state.patient.email}</p>
-                <h5>Edad</h5>
-                <p>{this.state.patient.age}</p>
-                <h5>Sexo</h5>
-                <p>{this.state.patient.genre}</p>
-                <h5>Motivos de la consulta</h5>
-                <ul>
-                    {this.state.appoinments.map(appointment => <li>{appointment.motive} - {appointment.date}</li>)}
-                </ul>
-                <h5>Antecedentes</h5>
-                <p>{this.state.patient.antecedents}</p>
-                <br />
-                <Button variant="outline-info" size="sm">
-                    <Link to='/admin/patients'>Volver</Link>
-                </Button>
-            </>
+            <Container>
+                <Row className="margin">
+                    <Col>
+                        <h1>Historial</h1>
+
+                        <div>
+                            <Link to={`/admin/patients/${this.state.patient._id}/edit`}>
+                                <Button variant="outline-info" size="sm">Editar Historial</Button>
+                            </Link>
+                        </div>
+                    </Col>
+                </Row>
+                <Row className="justify-content-center">
+                    <Col>
+                        <ul>
+                            <li>
+                                <strong>Nombre Completo</strong>
+                                <p>{this.state.patient.name} {this.state.patient.surname}</p>
+                            </li>
+                            <li>
+                                <strong>Datos de Contacto</strong>
+                                <p>{this.state.patient.email}</p>
+                            </li>
+                            <li>
+                                <strong>Edad</strong>
+                                <p>{this.state.patient.age}</p>
+                            </li>
+                            <li>
+                                <strong>Sexo</strong>
+                                <p>{this.state.patient.genre}</p>
+                            </li>
+                        </ul>
+                    </Col>
+                    <Col>
+                        <ul>
+                            <li>
+                                <strong>Motivos de la consulta</strong>
+                                <ul>
+                                    {this.state.appoinments.map(appointment => <li>{appointment.motive} - {appointment.date}</li>)}
+                                </ul>
+                            </li>
+                            <br />
+                            <li>
+                                <strong>Antecedentes</strong>
+                                <p>{this.state.patient.antecedents}</p>
+                            </li>
+                        </ul>
+
+                    </Col>
+                </Row>
+                <Row className="margin">
+                    <Col>
+                        <Link to='/admin/patients'>
+                            <Button variant="outline-secondary" size="sm">Volver</Button>
+                        </Link>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 }
+
 export default PatientDetails

@@ -43,7 +43,7 @@ class PatientList extends Component {
 
     render() {
         return (
-            <Container>
+            <Container fluid>
                 <Row className="margin">
                     <AdminMenu />
                     <Col sm={8}>
@@ -73,9 +73,13 @@ class PatientList extends Component {
                                 {this.state.patients.filter(elm => `${elm.name} ${elm.surname} ${elm.email}`.toLowerCase().includes(this.state.searchBar.toLowerCase())).map(elm => <PatientTable key={elm._id} patient={elm} />)}
                             </tbody>
                         </Table>
-                        <Button variant="outline-info" size="sm">
-                            <Link to='/admin'>Volver</Link>
-                        </Button>
+                        <Row className="margin">
+                            <Col>
+                                <Link to='/admin'>
+                                    <Button variant="outline-secondary" size="sm">Volver</Button>
+                                </Link>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
             </Container>

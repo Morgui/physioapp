@@ -84,10 +84,13 @@ class AppointmentList extends Component {
                                 {this.getFutureAppointments(today).map(elm => <AppointmentTableRow key={elm._id} appointment={elm} />)}
                             </tbody>
                         </Table>
-                        <br />
-                        <Button variant="outline-info" size="sm">
-                            <Link to='/admin'>Volver</Link>
-                        </Button>
+                        <Row className="margin">
+                            <Col>
+                                <Link to='/admin'>
+                                    <Button variant="outline-secondary" size="sm">Volver</Button>
+                                </Link>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
             </Container>
