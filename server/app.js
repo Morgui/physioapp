@@ -14,7 +14,7 @@ require('./configs/session.config')(app)
 
 // Base Url
 
-app.use('/api/auth', require('./routes/auth'))
+app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/appointment', require('./routes/appointment.routes'))
 app.use('/api/patients', require('./routes/patient.routes'))
 app.use('/api/datacharts', require('./routes/datacharts.routes'))

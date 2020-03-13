@@ -26,7 +26,7 @@ mongoose
 let users = [
   {
     username: "admin",
-    password: bcrypt.hashSync("soylucecita", bcrypt.genSaltSync(bcryptSalt)),
+    password: bcrypt.hashSync("admin", bcrypt.genSaltSync(bcryptSalt)),
   }
 ]
 
@@ -50,7 +50,7 @@ User.deleteMany()
 const patients = [{
   name: "Luz",
   surname: "Delgado",
-  email: "uotani.ld@gmail.com",
+  email: "testing15@gmail.com",
   age: "33",
   antecedents: "Bruxismo",
   genre: "mujer",
@@ -59,7 +59,7 @@ const patients = [{
 {
   name: "Roberto",
   surname: "Marrero",
-  email: "robertomarrerop@hotmail.com",
+  email: "testing0@gmail.com",
   age: "42",
   antecedents: "Lumbalgia",
   genre: "hombre",
@@ -88,7 +88,7 @@ const patients = [{
 {
   name: "Sara",
   surname: "Garzón",
-  email: "garsarabur6@gmail.com",
+  email: "testing14@gmail.com",
   age: "28",
   antecedents: "Esguince crónico",
   genre: "mujer",

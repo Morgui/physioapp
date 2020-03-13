@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import PatientService from '../../../../services/patient.services'
 import AppointmentService from '../../../../services/appointment.services'
 
+import moment from 'moment'
+import '../../../../moment.locale'
+
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -90,7 +93,7 @@ class PatientDetails extends Component {
                             <li>
                                 <strong>Motivos de la consulta</strong>
                                 <ul>
-                                    {this.state.appoinments.map(appointment => <li>{appointment.motive} - {appointment.date}</li>)}
+                                    {this.state.appoinments.map(appointment => <li>{appointment.motive} - {moment(appointment.date).format('l')}</li>)}
                                 </ul>
                             </li>
                             <br />

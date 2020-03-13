@@ -8,7 +8,6 @@ const User = require('../models/User.model')
 
 authRoutes.post('/signup', (req, res, next) => {
 
-  console.log("------ PAYLOAD EN DESTINO -----", req.body)
   const username = req.body.username;
   const password = req.body.password;
 
