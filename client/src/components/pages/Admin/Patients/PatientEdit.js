@@ -83,9 +83,7 @@ class PatientEdit extends Component {
                         <textarea name="antecedents" className="form-control" onChange={this.handleChange} value={this.state.patient.antecedents}>
                         </textarea>
                     </Form.Group>
-                    <Button variant="success" type="submit">
-                        Guardar
-                </Button>
+                    <Button variant="success" type="submit">Guardar</Button>
                 </Form>
             </Container>
         )

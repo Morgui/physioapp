@@ -76,7 +76,7 @@ class PatientList extends Component {
                         <Row className="margin">
                             <Col>
                                 <Link to='/admin'>
-                                    <Button variant="outline-secondary" size="sm">Volver</Button>
+                                    <Button variant="outline-info" size="sm">Volver</Button>
                                 </Link>
                             </Col>
                         </Row>

@@ -59,7 +59,7 @@ class PatientDetails extends Component {
 
                         <div>
                             <Link to={`/admin/patients/${this.state.patient._id}/edit`}>
-                                <Button variant="outline-info" size="sm">Editar Historial</Button>
+                                <Button variant="info" size="sm">Editar Historial</Button>
                             </Link>
                         </div>
                     </Col>
@@ -105,7 +105,7 @@ class PatientDetails extends Component {
                 <Row className="margin">
                     <Col>
                         <Link to='/admin/patients'>
-                            <Button variant="outline-secondary" size="sm">Volver</Button>
+                            <Button variant="outline-info" size="sm">Volver</Button>
                         </Link>
                     </Col>
                 </Row>

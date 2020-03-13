@@ -25,14 +25,16 @@ class Home extends Component {
                         No dude en pedir su cita online y seguro que no se arrepentirá. Nuestra combinación de experiencia, profesionalidad, vocación y atención al cliente es inmejorable.</p>
                     </Col>
                 </Row>
-                <Row className="justify-content-md-end">
-                    <Col md={{ span: 4, offset: 4 }}>
-                        <Button variant="outline-info" size="sm">
-                            <Link to='#'>Nuestros servicios</Link>
-                        </Button>
-                        <Button variant="outline-info" size="sm">
-                            <Link to='/appointment'>Pide tu Cita</Link>
-                        </Button>
+                <Row className="justify-content-md-end margin">
+                    <Col md={{ offset: 8 }}>
+                        <Link to='#'>
+                            <Button variant="outline-info" size="sm">Nuestros servicios</Button>
+                        </Link>
+                    </Col>
+                    <Col>
+                        <Link to='appointment'>
+                            <Button variant="outline-info" size="sm">Pide tu Cita</Button>
+                        </Link>
                     </Col>
                 </Row>
             </Container>

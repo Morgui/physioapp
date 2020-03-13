@@ -14,6 +14,7 @@ import AuthServices from './services/auth.services'
 import NavBar from './components/NavBar'
 import Login from './components/auth/Login'
 // import Signup from './components/auth/Signup'
+import Footer from './components/Footer'
 
 /* ---- PAGES COMPONENTS ---- */
 import Home from './components/pages/Home'
@@ -24,6 +25,7 @@ import AppointmentList from './components/pages/Admin/AppointmentList/Appointmen
 import PatientList from './components/pages/Admin/Patients/PatientList'
 import PatientDetails from './components/pages/Admin/Patients/PatientDetails'
 import PatientEdit from './components/pages/Admin/Patients/PatientEdit'
+import DataChart from './components/pages/Admin/DataCharts/DataChart'
 
 class App extends Component {
 
@@ -57,6 +59,7 @@ class App extends Component {
           {this.state.loggedInUser ? (
             <>
               <Route exact path="/admin" render={() => <AdminIndex loggedInUser={this.state.loggedInUser} />} />
+              <Route path="/admin/datacharts" render={() => <DataChart />} />
               <Route path="/admin/appointments" render={() => <AppointmentList />} />
               <Route exact path="/admin/patients" render={() => <PatientList />} />
               <Route exact path="/admin/patients/:id/edit" render={match => <PatientEdit {...match} />} />
@@ -66,6 +69,7 @@ class App extends Component {
               <Redirect to="/" />
             )}
         </Switch>
+        <Footer />
       </div>
     )
   }

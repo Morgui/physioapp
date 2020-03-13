@@ -43,11 +43,12 @@ class Login extends Component {
 
         return (
 
-            <Container className="auth-div">
+            <Container className="auth-div ">
 
-                <h1>Log In</h1>
-                <Row className="justify-content-md-center">
+                <Row className="justify-content-md-center margin">
                     <Col md={4}>
+                <h1>Log In</h1>
+                <br/>
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Group>
                                 <Form.Label>Username</Form.Label>

@@ -12,8 +12,9 @@ class AdminMenu extends Component {
         return (
             <Col sm={1} className="menu" >
                 <ul>
-                    <li><Link to="/admin/appointments">Citas</Link></li>
-                    <li><Link to="/admin/patients">Pacientes</Link></li>
+                    <li><Link style={{ color: "black", textDecoration: 'none' }} to="/admin/appointments">Citas</Link></li>
+                    <li><Link style={{ color: "black", textDecoration: 'none' }} to="/admin/patients">Pacientes</Link></li>
+                    <li><Link style={{ color: "black", textDecoration: 'none' }} to="/admin/datacharts">Estadísticas</Link></li>
                 </ul>
             </Col>
         )

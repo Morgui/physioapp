@@ -17,6 +17,7 @@ require('./configs/session.config')(app)
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/appointment', require('./routes/appointment.routes'))
 app.use('/api/patients', require('./routes/patient.routes'))
+app.use('/api/datacharts', require('./routes/datacharts.routes'))
 
 
 app.use((req, res) => {

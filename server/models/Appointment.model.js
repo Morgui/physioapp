@@ -34,4 +34,5 @@ appointmentSchema.statics.generateReference = function (numChart) {
 
 
 const Appointment = mongoose.model('Appointment', appointmentSchema);
+
 module.exports = Appointment

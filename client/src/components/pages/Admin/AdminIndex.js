@@ -21,9 +21,9 @@ class AdminIndex extends Component {
                             <Card.Body>
                                 <Card.Img variant="top" src="/images/appointments.png" alt="imagen citas" />
                                 <hr></hr>
-                                <Button variant="outline-info" size="sm">
-                                    <Link to="/admin/appointments">Citas</Link>
-                                </Button>
+                                <Link to='/admin/appointments'>
+                                    <Button variant="outline-info" size="sm">Citas</Button>
+                                </Link>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -32,9 +32,20 @@ class AdminIndex extends Component {
                             <Card.Body>
                                 <Card.Img variant="top" src="/images/patients2.jpeg" alt="listado pacientes" />
                                 <hr></hr>
-                                <Button variant="outline-info" size="sm">
-                                    <Link to="/admin/patients">Pacientes</Link>
-                                </Button>
+                                <Link to='/admin/patients'>
+                                    <Button variant="outline-info" size="sm">Pacientes</Button>
+                                </Link>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col md={4}>
+                        <Card className="card-admin">
+                            <Card.Body>
+                                <Card.Img variant="top" src="/images/img_chart.jpeg" alt="datos de los últimos 30 días" />
+                                <hr></hr>
+                                <Link to='/admin/datacharts'>
+                                    <Button variant="outline-info" size="sm">Estadísticas</Button>
+                                </Link>
                             </Card.Body>
                         </Card>
                     </Col>
