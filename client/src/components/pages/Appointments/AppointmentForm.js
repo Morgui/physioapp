@@ -11,7 +11,6 @@ import Image from 'react-bootstrap/Image'
 
 import AppointmenService from '../../../services/appointment.services'
 
-
 class AppointmentForm extends Component {
 
     constructor(props) {
@@ -63,7 +62,6 @@ class AppointmentForm extends Component {
         e.preventDefault()
         this.createAppointment(this.state.appointment)
             .then(appointment => {
-                console.log("vuelve del service")
                 this.props.history.push(`/appointment/created/${appointment.data.reference}`)
             })
             .catch(err => console.log(err))

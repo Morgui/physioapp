@@ -11,10 +11,10 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import AuthServices from './services/auth.services'
 
 /* ---- UI COMPONENTS ---- */
-import NavBar from './components/NavBar'
+import NavBar from './components/ui/NavBar'
 import Login from './components/auth/Login'
 // import Signup from './components/auth/Signup'
-import Footer from './components/Footer'
+import Footer from './components/ui/Footer'
 
 /* ---- PAGES COMPONENTS ---- */
 import Home from './components/pages/Home'

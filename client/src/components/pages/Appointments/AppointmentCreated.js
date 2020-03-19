@@ -27,7 +27,6 @@ class AppointmentCreated extends Component {
     getAppointmentByReference = (reference) => {
         this.appointmentService.getAppointmentByReference(reference)
             .then(result => {
-                console.log(result)
                 result ? this.setState({ appointment: result }) : this.props.history.push("/appointment")
 
             }).catch(err => console.log(err))
