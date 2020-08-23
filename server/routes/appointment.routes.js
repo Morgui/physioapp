@@ -23,7 +23,7 @@ router.get('/', (req, res, next) => {
 /* POST appointment available hours */
 router.post('/available-hours', (req, res, next) => {
     const { date } = req.body
-    const availableHours = ['9:00', '10:00', '11:00', '12:00', '13:00', '16:00', '17:00', '18:00', '19:00', '20:00'];
+    const availableHours = ['10:00', '11:00', '12:00', '13:00', '16:00', '17:00', '18:00', '19:00', '20:00'];
     const day = moment(date).startOf('day');
     const nextDay = moment(day).endOf('day');
 
