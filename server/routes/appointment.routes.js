@@ -55,7 +55,7 @@ router.post('/', (req, res, next) => {
     const { email, name, surname, date, time, motive } = req.body
 
     //Unir fecha y hora en la variable date para el modelo appointment
-    let stringDate = new Date(Date.parse(`${date}T${time}`))
+    let stringDate = new Date(Date.parse(`${date}T${time}+02:00`))
 
     // Crear un patient con los datos, si no existiera. En cualquier caso se obtiene el paciente en una variable para uso posterior
     Patient.findOne({ email })
