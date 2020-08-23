@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import moment from 'moment';
+import moment from 'moment-timezone';
 import '../../../moment.locale'
 
 import Button from 'react-bootstrap/Button'
@@ -34,7 +34,7 @@ class AppointmentCreated extends Component {
 
     dateParse = (date, format) => {
         moment.locale('es')
-        return moment(date).format(format)
+        return moment(date).tz('Europe/Madrid').format(format)
     }
 
 
