@@ -21,7 +21,7 @@ class Home extends Component {
                         <Image src="/images/fisio1.jpg" alt="imagen home" fluid />
                     </Col>
                     <Col>
-                        <p>Ofrecemos un trato personalizado que busca una mejoría duradera en la mayor brevedad posible. Trabajamos vocacionalmente y nos encanta verle satisfecho, ese es nuestro mejor premio.
+                        <p>Ofrecemos un trato personalizado, que busca una mejoría duradera en la mayor brevedad posible. Trabajamos vocacionalmente y nos encanta verle satisfecho, ese es nuestro mejor premio.
                         No dude en pedir su cita online y seguro que no se arrepentirá. Nuestra combinación de experiencia, profesionalidad, vocación y atención al cliente es inmejorable.</p>
                     </Col>
                 </Row>
