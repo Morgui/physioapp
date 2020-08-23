@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-const moment = require('moment')
+const moment = require('moment-timezone')
 const momentLocale = require('../configs/moment.locale.config')
 
 
@@ -24,7 +24,7 @@ class NodemailerService {
     templatePending = (date, reference) => {
         return {
             subject: `Cita creada, nº Ref. ${reference} - Pendiente de confirmación`,
-            body: `Su cita ha sido creada para el día ${moment(date).format("LL")} a las ${moment(date).format("LT")} y se encuentra pendiente de confirmación. Gracias para confiar en nuestros servicios`
+            body: `Su cita ha sido creada para el día ${moment(date).tz('Europe/Madrid').format("LL")} a las ${moment(date).tz('Europe/Madrid').format("LT")} y se encuentra pendiente de confirmación. Gracias para confiar en nuestros servicios`
         }
     }
 
@@ -38,7 +38,7 @@ class NodemailerService {
     templateCancelled = (date, reference) => {
         return {
             subject: `Cita cancelada, nº Ref. ${reference}`,
-            body: `Lamentamos informarle que su cita para el día ${moment(date).format("LL")} a las ${moment(date).format("LT")} ha sido cancelada, por favor solicite otra nuevamente. Perdone las molestias`
+            body: `Lamentamos informarle que su cita para el día ${moment(date).tz('Europe/Madrid').format("LL")} a las ${moment(date).tz('Europe/Madrid').format("LT")} ha sido cancelada, por favor solicite otra nuevamente. Perdone las molestias`
         }
     }
 
