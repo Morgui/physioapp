@@ -19,7 +19,7 @@ class Footer extends Component {
                     <Container>
                         <Row>
                             <Col>
-                                <p style={{ color: "gray" }}>PhysioApp © 2020 Todos los derechos reservados</p>
+                                <p style={{ color: "gray" }}>PhysioApp &copy; 2020 Todos los derechos reservados &nbsp;<strong>(Proyecto realizado con fines educativos, no es un servicio real)</strong></p>
                             </Col>
                         </Row>
                         <Row >
@@ -27,7 +27,7 @@ class Footer extends Component {
                                 <a target="_new" className="icon" style={{ color: "gray" }} href="https://www.linkedin.com/in/luz-divina-delgado-casta%C3%B1eda/"><FontAwesomeIcon icon={faLinkedin} /></a>
                             </Col>
                             <Col >
-                                <a target="_new" className="icon" style={{ color: "gray" }} href="https://github.com/Morgui"><FontAwesomeIcon icon={faGithub} /></a>
+                                <a target="_new" className="icon" style={{ color: "gray" }} href="https://github.com/Morgui/physioapp"><FontAwesomeIcon icon={faGithub} /></a>
                             </Col>
                             <a target="_new" style={{ color: "gray" }} href="https://github.com/Morgui"><p>SPA by Morgui</p></a>
                         </Row>

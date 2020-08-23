@@ -18,6 +18,3 @@ const patientSchema = new Schema({
 const Patient = mongoose.model('Patient', patientSchema);
 
 module.exports = Patient
-
-
-// es la información y expediente del Paciente - no se loguea ni hace nada, es para que al profesional se le muestren estos datos

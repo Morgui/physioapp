@@ -35,7 +35,7 @@ const reorderData = (appointments, labels) => {
     return finalData
 }
 
-/* GET datacharts */
+// GET datacharts
 router.get('/', (req, res, next) => {
 
     let today = moment()
