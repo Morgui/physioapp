@@ -39,8 +39,6 @@ npm install
 npm start
 ```
 
-O puedes ver una versión del proyecto en el siguiente [enlace](https://project-physio-app.herokuapp.com/)
-
 ### Realizado con
 
 Este proyecto ha sido realizado con React, Node, Express y MongoDB.
